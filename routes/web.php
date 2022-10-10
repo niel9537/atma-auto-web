@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SparepartController;
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,3 +25,5 @@ Route::get("editsparepart/{id}",[SparepartController::class,'editSparepart']);
 Route::post("savesparepart",[SparepartController::class,'saveSparepart']);
 Route::post("updatesparepart",[SparepartController::class,'updatesparepart']);
 Route::post("deletesparepart",[SparepartController::class,'deletesparepart']);
+
+Route::post("login",[AuthController::class,'login']);
