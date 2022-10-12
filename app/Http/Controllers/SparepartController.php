@@ -82,12 +82,11 @@ class SparepartController extends Controller
 
 
             ],
-        'headers' => [
-            'Accept' => 'application/json',
-            'Bearer' =>$token
-            ]
-        ]);
-            //$data = Http::get('http://localhost:5000/sparepart');
+            'headers' => [
+                'Accept' => 'application/json',
+                'Bearer' =>$token
+                ]
+            ]);
             return redirect('/sparepart');
         }else{
             echo 'Token is invalid';
@@ -97,32 +96,57 @@ class SparepartController extends Controller
         $token = Session::get('token');
         $BASE_URL = env("BASE_URL", "http://localhost:5000/");
         if($token){
-            $response = Http::withHeaders([
-                'Bearer' => $token,
-            ])->post("".$BASE_URL."sparepart/sparepart/edit", [
-                'sparepart_code' => $request->get('sparepart_code'),
-                'sparepart_type' => $request->get('sparepart_type'),
-                'sparepart_merk' => $request->get('sparepart_merk'),
-                'sparepart_stock' => $request->get('sparepart_stock'),
-                'sparepart_price' => $request->get('sparepart_price'),
-                'sparepart_place' => $request->get('sparepart_place'),
-                'sparepart_id' => $request->get('sparepart_id')
+            $client = new Client();
+            $response =  $client->request("POST","".$BASE_URL."sparepart/add", [
+            'multipart' => [
+                [
+                    'name'     => 'sparepart_code',
+                    'contents' => $request->get('sparepart_code')
+                ],
+                [
+                    'name'     => 'sparepart_type',
+                    'contents' => $request->get('sparepart_type')
+                ],
+                [
+                    'name'     => 'sparepart_merk',
+                    'contents' => $request->get('sparepart_merk')
+                ],                [
+                    'name'     => 'sparepart_stock',
+                    'contents' => $request->get('sparepart_stock')
+                ],
+                [
+                    'name'     => 'sparepart_price',
+                    'contents' => $request->get('sparepart_price')
+                ],
+                [
+                    'name'     => 'sparepart_place',
+                    'contents' => $request->get('sparepart_place')
+                ],
+                [
+                    'name'     => 'sparepart_id',
+                    'contents' => $request->get('sparepart_id')
+                ]
+
+
+            ],
+            'headers' => [
+                'Accept' => 'application/json',
+                'Bearer' =>$token
+                ]
             ]);
-            $data = Http::get('http://localhost:5000/sparepart');
-            return view('sparepart',['data'=>$data['data']]);
+            return redirect('/sparepart');
         }else{
             echo 'Token is invalid';
         }
     }
     function deletesparepart(Request $request){
         $token = Session::get('token');
+        $id = $request->get('sparepart_id');
         $BASE_URL = env("BASE_URL", "http://localhost:5000/");
         if($token){
-            $response = Http::withHeaders([
+            $data = Http::withHeaders([
                 'Bearer' => $token,
-            ])->post("".$BASE_URL."sparepart/delete", [
-                'sparepart_id' => $request->get('sparepart_id')
-            ]);
+            ])->get("".$BASE_URL."sparepart/delete/".$id."");
             return redirect('/sparepart');
         }else{
             echo 'Token is invalid';
