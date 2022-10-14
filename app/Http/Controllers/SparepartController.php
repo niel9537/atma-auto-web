@@ -50,44 +50,62 @@ class SparepartController extends Controller
     }
     function saveSparepart(Request $request){
         $token = Session::get('token');
+        $client_id = "Client-ID e7500fac3f8260a";
         $BASE_URL = env("BASE_URL", "http://localhost:5000/");
         //dd($request->get('sparepart_code'));
         if($token){
-            $client = new Client();
-            $response =  $client->request("POST","".$BASE_URL."sparepart/add", [
-            'multipart' => [
-                [
-                    'name'     => 'sparepart_code',
-                    'contents' => $request->get('sparepart_code')
-                ],
-                [
-                    'name'     => 'sparepart_type',
-                    'contents' => $request->get('sparepart_type')
-                ],
-                [
-                    'name'     => 'sparepart_merk',
-                    'contents' => $request->get('sparepart_merk')
-                ],                [
-                    'name'     => 'sparepart_stock',
-                    'contents' => $request->get('sparepart_stock')
-                ],
-                [
-                    'name'     => 'sparepart_price',
-                    'contents' => $request->get('sparepart_price')
-                ],
-                [
-                    'name'     => 'sparepart_place',
-                    'contents' => $request->get('sparepart_place')
-                ]
+            if($request->file('file')){
+                $client = new Client();
+                $request = $client->request('POST', 'https://api.imgur.com/3/upload', [
+                    'headers' => [
+                        'Authorization' => $client_id,
+                    ],
+                    'multipart' => [
+                        [
+                          'name' => 'image',
+                          'contents' => $request->file('file')
+                        ]
+                    ]
+                    ]);
+                    dd($res->getBody());
+
+                // $response =  $client->request("POST","".$BASE_URL."sparepart/add", [
+                // 'multipart' => [
+                //     [
+                //         'name'     => 'sparepart_code',
+                //         'contents' => $request->get('sparepart_code')
+                //     ],
+                //     [
+                //         'name'     => 'sparepart_type',
+                //         'contents' => $request->get('sparepart_type')
+                //     ],
+                //     [
+                //         'name'     => 'sparepart_merk',
+                //         'contents' => $request->get('sparepart_merk')
+                //     ],                [
+                //         'name'     => 'sparepart_stock',
+                //         'contents' => $request->get('sparepart_stock')
+                //     ],
+                //     [
+                //         'name'     => 'sparepart_price',
+                //         'contents' => $request->get('sparepart_price')
+                //     ],
+                //     [
+                //         'name'     => 'sparepart_place',
+                //         'contents' => $request->get('sparepart_place')
+                //     ]
 
 
-            ],
-            'headers' => [
-                'Accept' => 'application/json',
-                'Bearer' =>$token
-                ]
-            ]);
-            return redirect('/sparepart');
+                // ],
+                // 'headers' => [
+                //     'Accept' => 'application/json',
+                //     'Bearer' =>$token
+                //     ]
+                // ]);
+                // return redirect('/sparepart');
+            }else{
+                return redirect('/sparepart');
+            }
         }else{
             echo 'Token is invalid';
         }

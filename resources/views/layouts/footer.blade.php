@@ -1,8 +1,8 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+    <strong>Copyright 2022 Atma Auto</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.2.0
+      <b>Version</b> 1.0.0
     </div>
   </footer>
 
@@ -33,6 +33,8 @@
 <script src="{{asset('AdminLTE')}}/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
 <!-- jQuery Knob Chart -->
 <script src="{{asset('AdminLTE')}}/plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- Input? -->
+<script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- daterangepicker -->
 <script src="{{asset('AdminLTE')}}/plugins/moment/moment.min.js"></script>
 <script src="{{asset('AdminLTE')}}/plugins/daterangepicker/daterangepicker.js"></script>
@@ -48,5 +50,10 @@
 <script src="{{asset('AdminLTE')}}/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('AdminLTE')}}/dist/js/pages/dashboard.js"></script>
+<script>
+    $(function () {
+      bsCustomFileInput.init();
+    });
+    </script>
 </body>
 </html>

@@ -16,6 +16,9 @@ class AuthController extends Controller
         ]);
         $arr = json_decode($response,true);
         $token = $arr['token'][0]['token'];
+        if(!$token || $token == '') {
+            return redirect('/');
+        }
         $request->session()->put('token',$token);
         return redirect('sparepart');
     }

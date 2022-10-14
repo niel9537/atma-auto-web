@@ -15,15 +15,25 @@
     <link rel="stylesheet" href="{{ asset('AdminLTE') }}/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('AdminLTE') }}/dist/css/adminlte.min.css">
+    <style>
+        .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+    </style>
 </head>
 
 <body class="hold-transition login-page">
     <div class="login-box">
         <!-- /.login-logo -->
+
         <div class="card card-outline card-primary">
-            <div class="card-header text-center">
+            <img src="https://i.ibb.co/tLfTgV6/tma-Auto-removebg-preview.png" class="center"/>
+            {{-- <div class="card-header text-center">
                 <a class="h1"><b>Atma </b>Auto</a>
-            </div>
+            </div> --}}
             <div class="card-body">
                 {{-- <p class="login-box-msg">Sign In</p> --}}
 
