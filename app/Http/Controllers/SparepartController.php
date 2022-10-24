@@ -20,7 +20,9 @@ class SparepartController extends Controller
             $data = Http::withHeaders([
                 'Bearer' => $token,
             ])->get("". $BASE_URL."sparepart");
+
             return view('sparepart',['data'=>$data['data']]);
+
         }else{
             return redirect('/');
         }

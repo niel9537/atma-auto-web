@@ -36,25 +36,26 @@
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                  <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                 <li class="nav-item menu-open">
-                     <a href="#" class="nav-link active">
-                         <i class="nav-icon fas fa-tachometer-alt"></i>
+                 <li class="nav-item">
+                     <a href="#" class="nav-link">
+                         <i class="nav-icon fas fa-solid fa-wrench"></i>
                          <p>
                              Sparepart
                              <i class="right fas fa-angle-left"></i>
                          </p>
                      </a>
+                     <i class=""></i>
                      <ul class="nav nav-treeview">
                          <li class="nav-item">
                              <a href="{{ url('sparepart') }}" class="nav-link">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Show Sparepart</p>
+
+                                 <p>Tampil Sparepart</p>
                              </a>
                          </li>
                          <li class="nav-item">
                              <a href="{{ url('addsparepart') }}" class="nav-link">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Add Sparepart</p>
+
+                                 <p>Tambah Sparepart</p>
                              </a>
                          </li>
                          {{-- <li class="nav-item">
@@ -64,7 +65,101 @@
                              </a>
                          </li> --}}
                      </ul>
+
                  </li>
+                 <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa fa-cogs"></i>
+                        <p>
+                            Jasa
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ url('jasa') }}" class="nav-link">
+
+                                <p>Tampil Jasa</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('addjasa') }}" class="nav-link">
+
+                                <p>Tambah Jasa</p>
+                            </a>
+                        </li>
+                        {{-- <li class="nav-item">
+                            <a href="./index3.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Update </p>
+                            </a>
+                        </li> --}}
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa fa-user"></i>
+                        <p>
+                            Pegawai
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ url('pegawai') }}" class="nav-link">
+
+                                <p>Tampil Pegawai</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('addpegawai') }}" class="nav-link">
+
+                                <p>Tambah Pegawai</p>
+                            </a>
+                        </li>
+                        {{-- <li class="nav-item">
+                            <a href="./index3.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Update </p>
+                            </a>
+                        </li> --}}
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa fa-user"></i>
+                        <p>
+                            Customer
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ url('customer') }}" class="nav-link">
+
+                                <p>Tampil Customer</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('addcustomer') }}" class="nav-link">
+
+                                <p>Tambah Customer</p>
+                            </a>
+                        </li>
+                        {{-- <li class="nav-item">
+                            <a href="./index3.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Update </p>
+                            </a>
+                        </li> --}}
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('logout') }}" class="nav-link">
+                        <i class="nav-icon fas fa-solid fa-door-open"></i>
+                        <p class="text">Logout</p>
+                    </a>
+                </li>
                  {{-- <li class="nav-item">
                      <a href="pages/widgets.html" class="nav-link">
                          <i class="nav-icon fas fa-th"></i>

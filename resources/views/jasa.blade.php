@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Atma Auto | Show All Sparepart</title>
+        <title>Atma Auto | Show All Jasa</title>
 
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet"
@@ -33,12 +33,12 @@
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1>Sparepart</h1>
+                                <h1>Jasa</h1>
                             </div>
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
                                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active">Sparepart</li>
+                                    <li class="breadcrumb-item active">Jasa</li>
                                 </ol>
                             </div>
                         </div>
@@ -59,26 +59,26 @@
                                         <table id="example2" class="table table-bordered table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>Sparepart Image</th>
-                                                    <th>Sparepart Code</th>
-                                                    <th>Sparepart Merk</th>
-                                                    <th>Sparepart Price</th>
+                                                    <th>Service Name</th>
+                                                    <th>Service Price</th>
+                                                    <th>Service Cost</th>
+                                                    <th>Service Category </th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @foreach ($data as $item)
                                                     <tr>
-                                                        <td><img src="{{$item['sparepart_image'] }}" class="center"/> </td>
-                                                        <td>{{ $item['sparepart_code'] }}</td>
-                                                        <td>{{ $item['sparepart_merk'] }}</td>
-                                                        <td>{{ $item['sparepart_place'] }}</td>
+                                                        <td>{{ $item['service_name'] }}</td>
+                                                        <td>{{ $item['service_price'] }}</td>
+                                                        <td>{{ $item['service_cost'] }}</td>
+                                                        <td>{{ $item['service_category'] }}</td>
                                                         <td>
-                                                            <form action="{{ url('deletesparepart') }}" method="post">
+                                                            <form action="{{ url('deletejasa') }}" method="post">
                                                             <ul class="nav nav-pills ml-auto">
                                                                 <li class="nav-item">
-                                                                    <input type="hidden" name="sparepart_id"
-                                                                    value="{{ $item['sparepart_id'] }}" />
+                                                                    <input type="hidden" name="service_id"
+                                                                    value="{{ $item['service_id'] }}" />
                                                                 @csrf
                                                                 <button type="submit"
                                                                     class="btn btn-block btn-outline-danger btn-lg"> <i
@@ -87,7 +87,7 @@
                                                                 <br/>
 
                                                                 <li class="nav-item">
-                                                                    <a href="{{ url('editsparepart', $item['sparepart_id']) }}"
+                                                                    <a href="{{ url('editjasa', $item['service_id']) }}"
                                                                     type="submit"
                                                                     class="btn btn-block btn-outline-warning btn-lg"> <i
                                                                         class="nav-icon fas fa-duotone fa-pen"></i></a>

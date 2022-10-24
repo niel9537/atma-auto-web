@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Atma Auto | Add New Sparepart</title>
+        <title>Atma Auto | Update Customer</title>
 
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet"
@@ -33,12 +33,12 @@
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1>Sparepart</h1>
+                                <h1>Customer</h1>
                             </div>
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
                                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active">New Sparepart</li>
+                                    <li class="breadcrumb-item active">Update Customer</li>
                                 </ol>
                             </div>
                         </div>
@@ -52,49 +52,55 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3 class="card-title">Data Sparepart</h3>
+                                        <h3 class="card-title">Data Customer</h3>
                                     </div>
+
                                     <!-- /.card-header -->
                                     <div class="card-body">
-                                        <form action="{{ url('savesparepart') }}" method="POST" enctype="multipart/form-data">
+                                        @foreach ($data as $item)
+                                        <form action="{{ url('updatecustomer') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="card-body">
-                                                <div class="form-group">
-                                                    <label for="sparepart_code">Sparepart Code</label>
-                                                    <input type="text" class="form-control" name="sparepart_code"
-                                                        id="sparepart_code" placeholder="Enter Code">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="sparepart_place">Sparepart Place</label>
-                                                    <input type="text" class="form-control" name="sparepart_place"
-                                                        id="sparepart_place" placeholder="Enter Place">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="sparepart_merk">Sparepart Merk</label>
-                                                    <input type="text" class="form-control" name="sparepart_merk"
-                                                        id="sparepart_merk" placeholder="Enter Merk">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="sparepart_type">Sparepart Type</label>
-                                                    <input type="text" class="form-control" name="sparepart_type"
-                                                        id="sparepart_type" placeholder="Enter Type">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="sparepart_price">Sparepart Price</label>
-                                                    <input type="text" class="form-control" name="sparepart_price"
-                                                        id="sparepart_price" placeholder="Enter Price">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="sparepart_stock">Sparepart Stock</label>
-                                                    <input type="text" class="form-control" name="sparepart_stock"
-                                                        id="sparepart_stock" placeholder="Enter Stock">
-                                                </div>
-                                                <div class="form-group">
-                                                  <label for="sparepart_id">Sparepart File</label>
-                                                  <div class="default-file-upload">
-                                                    <input id="sparepart_id" name="file" type="file"/>
+                                                <input type="hidden" name="user_id"  value="{{ $item['user_id'] }}"/>
+                                                <div class="input-group mb-3">
 
-                                                    </div>
+                                                    <input type="email" class="form-control" name="user_email" value="{{ $item['user_email'] }}" placeholder="Email">
+
+                                                </div>
+                                                <div class="input-group mb-3">
+
+                                                    <input type="password" class="form-control" name="user_password" value="{{ $item['user_password'] }}" placeholder="Password">
+
+                                                </div>
+                                                <div class="input-group mb-3">
+
+                                                    <input type="text" class="form-control" name="user_fullname" value="{{ $item['user_fullname'] }}" placeholder="Fullname">
+
+                                                </div>
+                                                <div class="input-group mb-3">
+
+                                                    <input type="text" class="form-control" name="user_name" value="{{ $item['user_name'] }}" placeholder="Username">
+
+                                                </div>
+                                                <div class="input-group mb-3">
+
+                                                    <input type="text" class="form-control" name="user_address" value="{{ $item['user_address'] }}" placeholder="Address">
+
+                                                </div>
+                                                {{-- <div class="input-group mb-3">
+
+                                                    <select name="user_role" class="form-control">
+                                                        <option selected disabled>Pilih Role</option>
+                                                        <option value="2">Customer Service</option>
+                                                        <option value="3">Kasir</option>
+                                                    </select>
+                                                    {{-- <input type="text" class="form-control" name="user_role" placeholder="Role"> --}}
+
+                                                {{-- </div> --}}
+                                                <div class="input-group mb-3">
+
+                                                    <input type="number" class="form-control" name="user_phonenumber" value="{{ $item['user_phonenumber'] }}" placeholder="Phonenumber">
+
                                                 </div>
 
                                                 {{-- <div class="form-group">
@@ -127,6 +133,7 @@
                                                 <button type="submit" class="btn btn-primary">Submit</button>
                                             </div>
                                         </form>
+                                        @endforeach
                                     </div>
                                     <!-- /.card-body -->
                                 </div>

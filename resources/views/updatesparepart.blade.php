@@ -62,6 +62,7 @@
                                                 <div class="card-body">
                                                     <input type="hidden" class="form-control" name="sparepart_id"
                                                         value="{{ $item['sparepart_id'] }}" id="sparepart_id">
+                                                    <img src="https://i.imgur.com/g8bz4WM.png" height="300" width="300" class="center"/>
                                                     <div class="form-group">
                                                         <label for="sparepart_code">Sparepart Code</label>
                                                         <input type="text" class="form-control" name="sparepart_code"
@@ -98,6 +99,12 @@
                                                             value="{{ $item['sparepart_stock'] }}" id="sparepart_stock"
                                                             placeholder="Enter Stock">
                                                     </div>
+                                                    <div class="form-group">
+                                                        <label for="sparepart_id">Sparepart File</label>
+                                                        <div class="default-file-upload">
+                                                          <input id="sparepart_id" name="file" type="file"/>
+                                                          </div>
+                                                      </div>
                                                     {{-- <div class="form-group">
                                                     <label for="exampleInputPassword1">Password</label>
                                                     <input type="password" class="form-control" id="exampleInputPassword1"
